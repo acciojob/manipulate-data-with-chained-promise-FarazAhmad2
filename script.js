@@ -1,26 +1,28 @@
-//your JS code here. If required.
-function manipulateData(inputArray) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(inputArray);
-    }, 3000);
-  })
-  .then(array => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const evenNumbers = array.filter(num => num % 2 === 0);
-        document.getElementById('output').innerText = evenNumbers.join(', ');
-        resolve(evenNumbers);
-      }, 1000);
-    });
-  })
-  .then(evenNumbers => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        const multipliedNumbers = evenNumbers.map(num => num * 2);
-        document.getElementById('output').innerText = multipliedNumbers.join(', ');
-        resolve(multipliedNumbers);
-      }, 2000);
-    });
-  });
-}
+document.addEventListener("DOMContentLoaded", () => {
+  function manipulateData(array) {
+      return new Promise((resolve, reject) => {
+          setTimeout(() => {
+              resolve(array);
+          }, 3000);
+      }).then((arr) => {
+          return new Promise((resolve) => {
+              setTimeout(() => {
+                  const filteredArray = arr.filter(elem => elem % 2 == 0);
+                  document.querySelector('#output').textContent = `${filteredArray}`;
+                  console.log(filteredArray);
+                  resolve(filteredArray); // Resolve with filtered array
+              }, 1000);
+          });
+      }).then((filteredArray) => {
+          setTimeout(() => {
+              const mappedArray = filteredArray.map(elem => elem * 2);
+              document.querySelector('#output').textContent = `${mappedArray}`;
+              console.log(mappedArray);
+          }, 2000);
+      }).catch((err) => {
+          console.log('Error occurred', err);
+      });
+  }
+
+  manipulateData([1, 2, 3, 4]);
+});
