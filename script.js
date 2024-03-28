@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
   function manipulateData(array) {
       return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -25,4 +24,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   manipulateData([1, 2, 3, 4]);
-});
