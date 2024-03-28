@@ -24,5 +24,4 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  manipulateData([1, 2, 3, 4]);
 });
